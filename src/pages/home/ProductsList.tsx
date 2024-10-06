@@ -19,7 +19,7 @@ export const ProductsList = () => {
   }, [currentPage, getProducts]);
 
   return (
-    <section className="grid grid-cols-[repeat(auto-fit,16rem)] gap-6 w-full justify-center relative pb-16 flex-grow">
+    <section className="grid grid-cols-[repeat(auto-fit,16rem)] gap-6 w-full justify-center relative pb-20 flex-grow">
       {productsData?.products?.map((product) => (
         <ProductCard key={product.id} {...product} />
       ))}
@@ -28,7 +28,7 @@ export const ProductsList = () => {
           total={productsData?.total}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-          className="absolute bottom-2 left-0 right-0 mx-auto"
+          className="absolute bottom-3 left-0 right-0 mx-auto"
         />
       )}
     </section>

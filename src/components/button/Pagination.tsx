@@ -30,7 +30,7 @@ export const Pagination = (props: TProps) => {
       return (
         <button
           onClick={() => onArrowClick(direction)}
-          className={`text-gray-500 text-md bg-white flex justify-center items-center h-9 w-9 transition-colors hover:bg-gray-200 ${
+          className={`text-gray-500 text-md bg-white flex justify-center items-center h-10 w-10 transition-colors hover:bg-gray-200 ${
             direction === 'prev'
               ? 'border-r rounded-l-lg'
               : 'border-l rounded-r-lg '
@@ -46,7 +46,7 @@ export const Pagination = (props: TProps) => {
   return (
     <div className={`flex border border-solid rounded-lg w-fit  ${className}`}>
       {renderArrow('prev')}
-      <button className="h-9 w-9 text-lg font-medium text-teal-500 bg-teal-50">
+      <button className="h-10 w-10 text-lg font-medium text-teal-500 bg-teal-50">
         {currentPage}
       </button>
       {renderArrow('next')}
