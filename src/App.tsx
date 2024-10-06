@@ -1,7 +1,11 @@
 import { Home } from './pages/home';
 
 function App() {
-  return <Home />;
+  return (
+    <div className="bg-gray-50 flex-grow">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
