@@ -1,17 +1,26 @@
 import { FaStar } from 'react-icons/fa';
 import { Product } from '../../types/product';
+import { useState } from 'react';
+import { RiShoppingBasketFill } from 'react-icons/ri';
 
 type TProps = Product;
 
 export const ProductCard = (props: TProps) => {
   const { images, title, price, rating, category } = props;
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <article className="flex flex-col h-80 bg-white rounded-xl p-4 shadow-md shadow-gray-200">
+      {!imageLoaded && (
+        <RiShoppingBasketFill className="w-full h-40 mb-4 text-gray-300" />
+      )}
       <img
         src={images[0]}
         alt={title}
-        className="w-full h-40 mb-4 object-contain"
+        className={`w-full h-40 mb-4 object-contain ${
+          imageLoaded ? 'block' : 'hidden'
+        }`}
+        onLoad={() => setImageLoaded(true)}
       />
       <div className="flex flex-col justify-between grow">
         <div>
