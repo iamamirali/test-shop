@@ -8,7 +8,7 @@ export const ProductsList = () => {
 
   const getProducts = useCallback(async () => {
     return await fetch(
-      `https://dummyjson.com/products?limit=10&skip=${currentPage * 10}`
+      `https://dummyjson.com/products?limit=10&skip=${(currentPage - 1) * 10}`
     );
   }, [currentPage]);
 

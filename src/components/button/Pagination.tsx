@@ -12,7 +12,7 @@ type TProps = {
 export const Pagination = (props: TProps) => {
   const { perPage = 10, total, currentPage, setCurrentPage, className } = props;
 
-  const pagesCount = Math.floor(total / perPage);
+  const pagesCount = Math.ceil(total / perPage);
 
   const onArrowClick = useCallback(
     (direction: 'prev' | 'next') => {
