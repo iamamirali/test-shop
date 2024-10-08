@@ -1,28 +1,28 @@
-import { Dispatch, SetStateAction, useCallback } from 'react';
+import { useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 type TProps = {
   perPage?: number;
   total: number;
   currentPage: number;
-  setCurrentPage: Dispatch<SetStateAction<number>>;
+  onChange: (page: number) => void;
   className: string;
 };
 
 export const Pagination = (props: TProps) => {
-  const { perPage = 10, total, currentPage, setCurrentPage, className } = props;
+  const { perPage = 10, total, currentPage, className, onChange } = props;
 
   const pagesCount = Math.ceil(total / perPage);
 
   const onArrowClick = useCallback(
     (direction: 'prev' | 'next') => {
       if (direction === 'prev') {
-        setCurrentPage(currentPage === 1 ? pagesCount : currentPage - 1);
+        onChange(currentPage === 1 ? pagesCount : currentPage - 1);
       } else {
-        setCurrentPage(currentPage === pagesCount ? 1 : currentPage + 1);
+        onChange(currentPage === pagesCount ? 1 : currentPage + 1);
       }
     },
-    [currentPage, pagesCount, setCurrentPage]
+    [currentPage, pagesCount, onChange]
   );
 
   const renderArrow = useCallback(
