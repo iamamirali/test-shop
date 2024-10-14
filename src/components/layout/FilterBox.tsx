@@ -30,7 +30,9 @@ export const FilterBox = (props: TProps) => {
             <p className="text-xl font-semibold">
               {resultsCount || 0} Products
             </p>
-            <button className="text-red-500">Clear Filters</button>
+            <button className="text-red-500" onClick={onClear}>
+              Clear Filters
+            </button>
           </div>
           {children}
         </div>
